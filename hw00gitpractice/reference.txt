@@ -1,4 +1,4 @@
-BASIC GIT COMMANDS
+BASIC GIT COMMANDS!!
 
 git init - creates a new Git repository
   -write (git init)
