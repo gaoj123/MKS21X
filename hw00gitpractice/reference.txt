@@ -1,1 +1,19 @@
-Git Commands
+GIT COMMANDS
+
+git init - creates a new Git repository
+  -write (git init)
+  
+git status - inspects the contents of the working directory and staging area (sees untracked files & file changes for commit)
+  -write (git status)
+  
+git add - adds files from the working directory to the staging area
+  -write (git add filename)
+  
+git diff - shows the difference between working directory and staging area
+  -write (git diff filename)
+  
+git commit - permanently stores the changes from the staging area in the repository
+  -write (git commit -m "comment to describe the point of the commit")
+  
+git log - shows a list of all previous commits
+  -write (git log)
