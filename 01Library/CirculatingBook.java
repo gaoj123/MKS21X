@@ -31,7 +31,7 @@ public class CirculatingBook extends LibraryBook{
 	    return "book available on shelves";
 	}
 	else{
-	    return currentHolder+" "+dueDate;
+	    return "borrowed by "+currentHolder+" and due on: "+dueDate;
 	}
     }
     public String toString(){
