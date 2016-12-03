@@ -1,9 +1,6 @@
 import java.util.*;
-public class superArrayInterator implements Iterator<String>{
-    SuperArray a;
-    int index;
+public class SuperArrayInterator implements Iterator<String>{
     public superArrayInterator(){
-	
     }
     public String next(){
 	if(hasNext()){
