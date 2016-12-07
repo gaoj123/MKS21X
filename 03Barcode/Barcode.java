@@ -10,7 +10,7 @@ public class Barcode implements Comparable<Barcode>{
 //               _zip and _checkDigit are initialized.
   public Barcode(String zip) {
       if(zip.length()==5&&checkDigit(zip)){
-	  _checkDigit=checkSum()%10;
+	  // _checkDigit=sum%10;
 	  _zip=zip;
       }
       else{
