@@ -4,7 +4,10 @@ public class Driver{
 	System.out.println(bar);
 	Barcode a=new Barcode("12345");
 	System.out.println(a);
-	Barcode b=new Barcode("11111");
-	System.out.println(b);
+	Barcode c=a.clone();
+	System.out.println(c);
+	//Barcode b=new Barcode("1.1111");
+	//System.out.println(b);
+	System.out.println(a.compareTo(c));
     }
 }
