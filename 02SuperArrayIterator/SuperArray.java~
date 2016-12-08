@@ -1,7 +1,10 @@
-public class SuperArray{
+import java.util.*;
+public class SuperArray implements Iterable<String>{
     private String[] data;
     private int size;
-  
+    public Iterator<String> iterator(){
+	return new SuperArrayIterator(this);
+    }
     //0
     //constructor make an empty superArray should make size 0, 
     //but the data capacity 10.
