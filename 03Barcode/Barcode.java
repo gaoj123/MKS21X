@@ -80,16 +80,17 @@ public class Barcode implements Comparable<Barcode>{
     public static String toCode(String zip){
 	if(zip.length()==5&&checkDigits(zip)){
 	    int cDigit=0;
-	    int sumDig=0;
+	    //int sumDig=0;
 	    String s="";
 	    s+="|";
 	    for(int i=0;i<zip.length();i++){
 		s+=mappings[Integer.parseInt(zip.substring(i,i+1))];
 	    }
-	    for(int a=0;a<zip.length();a++){
-		sumDig+=Integer.parseInt(zip.substring(a,a+1));
-	    }
-	    cDigit=sumDig%10;
+	    //for(int a=0;a<zip.length();a++){
+	    //	sumDig+=Integer.parseInt(zip.substring(a,a+1));
+	    //}
+	    // cDigit=sumDig%10;
+	    cDigit=checkSum(zip);
 	    s+=mappings[cDigit];
 	    s+="|";
 	    return s;
@@ -158,6 +159,15 @@ public class Barcode implements Comparable<Barcode>{
 	return true;
     }
     // postcondition: computes and returns the check sum for _zip
+    private static int checkSum(String zip){
+	int cDigit=0;
+	int sumDig=0;
+	for(int a=0;a<zip.length();a++){
+	    sumDig+=Integer.parseInt(zip.substring(a,a+1));
+	}
+	cDigit=sumDig%10;
+	return cDigit;
+    }
     private int checkSum(){
 	int sumDigits=0;
 	return sumDigits1%10;	  
