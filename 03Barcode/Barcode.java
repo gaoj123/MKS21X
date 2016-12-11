@@ -5,16 +5,6 @@ public class Barcode implements Comparable<Barcode>{
     private int _checkDigit;
     private int sumDigits1;
     static String[] mappings=new String[]{"||:::",":::||","::|:|","::||:",":|::|",":|:|:",":||::","|:::|","|::|:","|:|::"};
-    // mappings[0]="||:::";
-    // mappings[1]=":::||";
-    // mappings[2]="::|:|";
-    // mappings[3]="::||:";
-    // mappings[4]=":|::|";
-    // mappings[5]=":|:|:";
-    // mappings[6]=":||::";
-    // mappings[7]="|:::|";
-    // mappings[8]="|::|:";
-    // mappings[9]="|:|::";
     static ArrayList<String> m=new ArrayList<String>(Arrays.asList(mappings));
 
     // constructors
@@ -29,17 +19,6 @@ public class Barcode implements Comparable<Barcode>{
 	    }
 	    _checkDigit=checkSum();
 	    _zip=zip;
-	    // mappings[0]="||:::";
-	    // mappings[1]=":::||";
-	    // mappings[2]="::|:|";
-	    // mappings[3]="::||:";
-	    // mappings[4]=":|::|";
-	    // mappings[5]=":|:|:";
-	    // mappings[6]=":||::";
-	    // mappings[7]="|:::|";
-	    // mappings[8]="|::|:";
-	    // mappings[9]="|:|::";
-	    // m=new ArrayList<String>(Arrays.asList(mappings));
 	}
 	else if(zip.length()!=5){
 	    throw new IllegalArgumentException("Length of zip needs to be 5");
@@ -47,9 +26,6 @@ public class Barcode implements Comparable<Barcode>{
 	else if(!checkDigits(zip)){
 	    throw new IllegalArgumentException("Zip can only have int digits");
 	}
-	//	else{
-	//   throw new IllegalArgumentException();
-	//	}
     }
     public static boolean checkBarcode(String bar){
 	if(bar.length()!=32){
@@ -71,7 +47,7 @@ public class Barcode implements Comparable<Barcode>{
 		}
 	    }
 	    if (count==10){
-		throw new IllegalArgumentException("Some sets of symbols don't have corresponding int values");
+		throw new IllegalArgumentException("Some sets of 5 symbols don't have corresponding int values");
 	    }
 	}
 	return true;
@@ -80,23 +56,21 @@ public class Barcode implements Comparable<Barcode>{
     public static String toCode(String zip){
 	if(zip.length()==5&&checkDigits(zip)){
 	    int cDigit=0;
-	    //int sumDig=0;
 	    String s="";
 	    s+="|";
 	    for(int i=0;i<zip.length();i++){
 		s+=mappings[Integer.parseInt(zip.substring(i,i+1))];
 	    }
-	    //for(int a=0;a<zip.length();a++){
-	    //	sumDig+=Integer.parseInt(zip.substring(a,a+1));
-	    //}
-	    // cDigit=sumDig%10;
 	    cDigit=checkSum(zip);
 	    s+=mappings[cDigit];
 	    s+="|";
 	    return s;
 	}
-	else{
-	    throw new IllegalArgumentException("Invalid zip");
+	else if (zip.length()!=5){
+	    throw new IllegalArgumentException("Invalid zip: must be 5 digits");
+	}
+	else {
+	    throw new IllegalArgumentException("Invalid zip: must contain digits only");
 	}
     }
     public static String toZip(String code){
@@ -182,36 +156,6 @@ public class Barcode implements Comparable<Barcode>{
 	retStr+="|";
 	for(int i=0;i<zipAndCheckDigit().length();i++){
 	    retStr+=mappings[Integer.parseInt(zipAndCheckDigit().substring(i,i+1))];
-	    // if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==1){
-	    // 	retStr+=":::||";
-	    // }
-	    // else if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==2){
-	    // 	retStr+="::|:|";
-	    // }
-	    // else if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==3){
-	    // 	retStr+="::||:";
-	    // }
-	    // else if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==4){
-	    // 	retStr+=":|::|";
-	    // }
-	    // else if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==5){
-	    // 	retStr+=":|:|:";
-	    // }
-	    // else if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==6){
-	    // 	retStr+=":||::";
-	    // }
-	    // else if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==7){
-	    // 	retStr+="|:::|";
-	    // }
-	    // else if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==8){
-	    // 	retStr+="|::|:";
-	    // }
-	    // else if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==9){
-	    // 	retStr+="|:|::";
-	    // }
-	    // else if(Integer.parseInt(zipAndCheckDigit().substring(i,i+1))==0){
-	    // 	retStr+="||:::";
-	    // }
 	}
 	retStr+="|";
 	return retStr;
