@@ -10,7 +10,7 @@ public class Sorts{
   *@param data  the elements to be sorted.
   */
   public static void selectionSort(int[] data){
-      for(int s=0;s<data.length;s++){
+      for(int s=0;s<data.length;s++){//check
 	  int smallerInd=0;
 	  for(int i=1;i<data.length;i++){
 	      // if(data[s]>data[i]){
@@ -20,7 +20,7 @@ public class Sorts{
 	  int smallestVal=data[smallerInd];
 	  int frontVal=data[s];
 	  ary[s]=smallestVal;
-	  ary[smaller]=frontVal;	  
+	  ary[smallerInd]=frontVal;	  
       }
   }
     
