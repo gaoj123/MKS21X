@@ -25,9 +25,21 @@ public class Sorts{
 	}
 	//	return Arrays.toString(data);
     }
+    public static String insertionSort(int[] data){
+	for(int i=0;i<data.length;i++){
+	    for(int j=i+1;j<data.length;j++){
+		if(data[j]<data[i]){
+		    int a=data[j];
+		    data[j]=data[i];
+		    data[i]=a;
+		}
+	    }
+	}
+	return Arrays.toString(data);
+    }
     public static void main(String[] args){
-	// int[] a=new int[]{64,25,11,22,12};
-	// System.out.println(selectionSort(a));
+	int[] a=new int[]{64,25,11,22,12};
+	System.out.println(insertionSort(a));
 	// int[] b=new int[]{101,2,67,150,10,1};
 	// System.out.println(selectionSort(b));
     }
