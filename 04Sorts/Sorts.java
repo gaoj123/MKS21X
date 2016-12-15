@@ -74,18 +74,52 @@ public class Sorts{
 	//	return Arrays.toString(data);
 		
     }
-    public static void main(String[] args){
-	// int[] a=new int[]{64,25,11,22,12,234,23,33,55,22,33,56};
-	// insertionSort(a);
-	// //	System.out.println(insertionSort(a));
-	// int[] b=new int[]{101,2,67,150,10};
-	// insertionSort(b);
-	// int[] c=new int[]{3, 7, 4, 9, 5, 2, 6, 1};
-	// insertionSort(c);
-	// int[] d=new int[]{9, 10, 4, 3, 0 , 2};
-	// insertionSort(d);
-	// int[] e=new int[]{1,2,4,6, 3,10,0,5};
-	// insertionSort(e);
-	//System.out.println(insertionSort(b));
+    // for(int i=0;i<data.length-1;i++){
+    //   if(...!=0){
+    //     count=0;
+    //     for(int j=1;j<data.length;j++)
+    // ____________________________________________
+
+    // count=0;
+    // entered=0;
+    // if (!(count==0&&entered==1)){
+    // for(int i=0;i<data.length;i++){
+    // 	entered=1;
+    // 	if(data[i+1]<data[i]){
+    // 		int x=data[i];
+    // 		data[i]=data[i+1];
+    // 		data[i+1]=x;
+    // 		count+=1;
+    // 	}
+    // }
+    // }
+    public static void bubbleSort(int[] data){
+	for(boolean done=false,int i=0;i<data.length-1&&!done;i++){
+	    for(int j=0;j<data.length;j++){
+		int count=0;
+		if(data[i+1]<data[i]){
+		    int x=data[i];
+		    data[i]=data[i+1];
+		    data[i+1]=x;
+		    count+=1;
+		}
+	    }
+	    if(count==0){
+		done=true;
+	    }
+	}
+	public static void main(String[] args){
+	    // int[] a=new int[]{64,25,11,22,12,234,23,33,55,22,33,56};
+	    // insertionSort(a);
+	    // //	System.out.println(insertionSort(a));
+	    // int[] b=new int[]{101,2,67,150,10};
+	    // insertionSort(b);
+	    // int[] c=new int[]{3, 7, 4, 9, 5, 2, 6, 1};
+	    // insertionSort(c);
+	    // int[] d=new int[]{9, 10, 4, 3, 0 , 2};
+	    // insertionSort(d);
+	    // int[] e=new int[]{1,2,4,6, 3,10,0,5};
+	    // insertionSort(e);
+	    //System.out.println(insertionSort(b));
+	}
     }
-}
