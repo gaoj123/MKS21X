@@ -94,13 +94,15 @@ public class Sorts{
     // }
     // }
     public static void bubbleSort(int[] data){
-	for(boolean done=false,int i=0;i<data.length-1&&!done;i++){
-	    for(int j=0;j<data.length;j++){
-		int count=0;
-		if(data[i+1]<data[i]){
-		    int x=data[i];
-		    data[i]=data[i+1];
-		    data[i+1]=x;
+	boolean done;
+	int i;
+	for(done=false,i=0;i<(data.length-1)&&!done;i++){
+	    int count=0;
+	    for(int j=0;j<data.length-1;j++){
+		if(data[j+1]<data[j]){
+		    int x=data[j];
+		    data[j]=data[j+1];
+		    data[j+1]=x;
 		    count+=1;
 		}
 	    }
@@ -108,14 +110,22 @@ public class Sorts{
 		done=true;
 	    }
 	}
+	// System.out.print("[");
+	// for(int b=0;b<data.length;b++){
+	//     System.out.print(data[b]+",");
+	// }
+	// System.out.println("]");
+    }
+		    
 	public static void main(String[] args){
-	    // int[] a=new int[]{64,25,11,22,12,234,23,33,55,22,33,56};
+	    int[] a=new int[]{64,25,11,22,12,234,23,33,55,22,33,56};
+	    //bubbleSort(a);
 	    // insertionSort(a);
 	    // //	System.out.println(insertionSort(a));
-	    // int[] b=new int[]{101,2,67,150,10};
+	    //int[] b=new int[]{101,2,67,150,10};
 	    // insertionSort(b);
-	    // int[] c=new int[]{3, 7, 4, 9, 5, 2, 6, 1};
-	    // insertionSort(c);
+	     int[] c=new int[]{3, 7, 4, 9, 5, 2, 6, 1};
+	     // bubbleSort(c);
 	    // int[] d=new int[]{9, 10, 4, 3, 0 , 2};
 	    // insertionSort(d);
 	    // int[] e=new int[]{1,2,4,6, 3,10,0,5};
