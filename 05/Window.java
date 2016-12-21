@@ -4,13 +4,14 @@ public class Window extends JFrame {
  private Container pane;
 
  private JButton b;
- private JLabel l;
- private JTextField t;
- private JCheckBox c;
+    private JButton d;
+ private JLabel a;
+ private JTextField c;
+    //private JCheckBox c;
  
   //CONSTRUCTOR SETS EVERYTHING UP
   public Window() {
-     this.setTitle("My first GUI");
+     this.setTitle("Converting Temperatures");
      this.setSize(600,400);
      this.setLocation(100,100);
      this.setDefaultCloseOperation(EXIT_ON_CLOSE);
