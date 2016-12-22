@@ -44,16 +44,24 @@ public class Window extends JFrame implements ActionListener {
     }
     public void actionPerformed(ActionEvent e){
 	if(e.getActionCommand().equals("convertToC")){
-	    double x=(5.0/9)*(Integer.parseInt(c.getText())-32);
+	    double x=(5.0/9)*(Double.parseDouble(c.getText())-32);
 	    double roundOff=Math.round(x*100.0)/100.0;
-	     a.setText(""+roundOff);
-	   
+	     a.setText(""+roundOff+" C");
+	     
 	}
 	else if(e.getActionCommand().equals("convertToF")){
-	    double y=(9.0/5)*Integer.parseInt(c.getText())+32;
-	    double roundY=Math.round(y*100.0)/100.0;
-	     a.setText(""+roundY);
-	   
+	    // int F=0;
+	    //String input=c.getText();
+	    // for(int i=0;i<input.length();i++){
+	    // 	if (input.substring(i,i+1).equals("F")){
+	    // 		F=1;
+	    // 	}
+	    // }
+	    //if (F==0){
+		double y=(9.0/5)*Double.parseDouble(c.getText())+32;
+		double roundY=Math.round(y*100.0)/100.0;
+		a.setText(""+roundY+" F");
+		//}
 	}
     }
 }
